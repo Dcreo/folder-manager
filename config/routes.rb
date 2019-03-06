@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
   namespace :manage do
-    resource :folders
+    resources :folders
   end
 end

@@ -1,4 +1,8 @@
 class Manage::FoldersController < Manage::ApplicationController
+  def index
+    @folders = current_user.folders
+  end
+
   def new
     @folder = Folder.new
   end
@@ -16,6 +20,6 @@ class Manage::FoldersController < Manage::ApplicationController
   private
 
   def folder_params
-    params.require(:folder).permit(:name)
+    params.require(:folder).permit(:name).merge(user_id: current_user.id)
   end
 end

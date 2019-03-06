@@ -1,0 +1,10 @@
+<h1>Ваши папки</h1>
+
+<ul>
+  <% @folders.each do |folder| %>
+    <li>
+      <%= folder.name %>
+      <%= link_to 'Удалить', manage_folder_path(folder), method: :delete, data: { confirm: 'Вы уверены?' } %>
+    </li>
+  <% end %>
+</ul>

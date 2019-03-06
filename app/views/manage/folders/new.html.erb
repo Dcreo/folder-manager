@@ -1,3 +1,6 @@
+<%= link_to 'Список папок', manage_folders_path %>
+<h1>Добавить папку</h1>
+
 <%= simple_form_for [:manage, @folder] do |f| %>
   <%= f.input :name %>
   <%= f.submit %>

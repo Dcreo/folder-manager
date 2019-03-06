@@ -1,14 +1,19 @@
+require 'fileutils'
+
 module Control
   class Folder
-    attr_accessor :name
+    attr_accessor :folder
 
-    def initialize(options = {})
-      @name = options[:name]
-      @folders_path = ENV['FOLDERS_PATH']
+    def initialize(folder)
+      @folder = folder
     end
 
     def create
-      Dir.mkdir [@folders_path, @name].join('/')
+      FileUtils.mkdir_p @folder.path
+    end
+
+    def delete
+      FileUtils.rm_rf @folder.path
     end
   end
 end
