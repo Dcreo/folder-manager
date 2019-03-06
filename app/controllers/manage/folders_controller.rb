@@ -1,4 +1,6 @@
 class Manage::FoldersController < Manage::ApplicationController
+  load_resource :folder
+
   def index
     @folders = current_user.folders
   end
@@ -11,10 +13,16 @@ class Manage::FoldersController < Manage::ApplicationController
     @folder = Folder.new(folder_params)
 
     if @folder.save
-      redirect_to new_manage_folders_path
+      redirect_to manage_folders_path
     else
       render :new
     end
+  end
+
+  def destroy
+    @folder.destroy
+
+    redirect_to manage_folders_path
   end
 
   private

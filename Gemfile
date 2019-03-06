@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'simple_form'
 gem 'awesome_print', require: false
 gem 'devise'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
